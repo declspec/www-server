@@ -1,0 +1,31 @@
+{
+  "name": "www-server",
+  "version": "1.0.0",
+  "description": "Basic HTTP(S) server for serving static assets, translating subdomains to directories\"",
+  "main": "server.js",
+  "dependencies": {
+    "finalhandler": "^1.1.1",
+    "serve-static": "^1.13.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/declspec/www-server.git"
+  },
+  "keywords": [
+    "www",
+    "server",
+    "node",
+    "js"
+  ],
+  "author": "Jason Larke",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/declspec/www-server/issues"
+  },
+  "homepage": "https://github.com/declspec/www-server#readme"
+}
