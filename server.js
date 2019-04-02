@@ -10,10 +10,16 @@ const sslOptions = {
     cert: fs.readFileSync('./.ssl/cert.pem')
 };
 
-const requestHandler = createRequestHandler(path.resolve('../www'), 'dev.io');
+if (process.argv.length < 4) {
+    console.error('usage: node server.js domain directory [ip]');
+    process.exit(128);
+}
 
-http.createServer(requestHandler).listen(80, '127.0.0.2');
-https.createServer(sslOptions, requestHandler).listen(443, '127.0.0.2');
+const requestHandler = createRequestHandler(path.resolve(process.argv[3]), process.argv[2]);
+const ipAddress = process.argv.length > 4 ? process.argv[4] : '0.0.0.0';
+
+http.createServer(requestHandler).listen(80, ipAddress);
+https.createServer(sslOptions, requestHandler).listen(443, ipAddress);
 
 function createRequestHandler(root, host) {
     const serveRoot = serveStatic(root);
